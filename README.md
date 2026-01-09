@@ -2,10 +2,10 @@
 
 Yapılması gerekenler
 ----------------------
-1- MSSQL'de veritabanı yaratılır
-2- Connection string düzenlenir
-3- Swagger ile /api/Database tetiklenerek veritabanı örnek veriler ile birlikte kurulur 
-4- Swagger ile /api/Token demo kullanıcı ile tetiklenir
+1- MSSQL'de veritabanı yaratılır  
+2- Connection string düzenlenir  
+3- Swagger ile /api/Database tetiklenerek veritabanı örnek veriler ile birlikte kurulur   
+4- Swagger ile /api/Token demo kullanıcı ile tetiklenir  
 
 Token almak için
 -----------------------
