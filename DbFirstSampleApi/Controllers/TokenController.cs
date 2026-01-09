@@ -1,12 +1,9 @@
 ﻿using DbFirstSampleApi.DataAccess.Abstract;
-using DbFirstSampleApi.DataAccess.Concrete;
-using DbFirstSampleApi.Entities.Concrete;
 using DbFirstSampleApi.Entities.EndpointParams.User;
 using DbFirstSampleApi.Response;
 using DbFirstSampleApi.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Swagger.Net.Swagger.Annotations;
 
 namespace DbFirstSampleApi.Controllers
 {
