@@ -1,17 +1,14 @@
 ﻿using DbFirstSampleApi.DataAccess.Abstract;
 using DbFirstSampleApi.Entities.Concrete;
-using DbFirstSampleApi.Entities.Dtos.ProductDto;
 using DbFirstSampleApi.Entities.EndpointParams.Product;
 using DbFirstSampleApi.Response;
 using DbFirstSampleApi.Services;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Net.WebSockets;
 
 namespace DbFirstSampleApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ExternalProductController : ControllerBase

@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DbFirstSampleApi.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

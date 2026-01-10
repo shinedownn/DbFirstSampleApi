@@ -2,8 +2,8 @@
 {
     public class LoginParams
     {
-        public string Username { get; set; } = "demo";
-        public string Password { get; set; } = "demo";
+        public string Username { get; set; }
+        public string Password { get; set; }
         
     }
 }
