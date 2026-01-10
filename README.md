@@ -11,8 +11,8 @@ Yapılması gerekenler
 
 Token almak için
 -----------------------
-Kullanıcı adı : demo  
-Şifre         : demo  
+Kullanıcı adı  : demo  
+Şifre          : demo  
 
 Kullanılan Teknolojiler
 -----------------------
