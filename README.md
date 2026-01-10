@@ -27,7 +27,7 @@ Generic Repository
 Mapping  
 Fluent Validation  
 Sql Script çalıştırma ile veritabanı kurulumu
-https://fakestoreapi.com/products adresinden ürün bilgilerini çekme, toplu ekleme ve veritabanı ile karşılaştırma
+https://fakestoreapi.com/products adresinden ürün bilgilerini çekme, veritabanına toplu ekleme ve veritabanı ile karşılaştırma
 
 
 
