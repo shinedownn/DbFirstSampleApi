@@ -6,7 +6,7 @@ _Özet_
 
 _Mimari Yapı_
 ----------------------
-- <label style="color:purple;text-decoration:underline">DataAccess</label> katmanında Generic Repository deseni kullanılarak veri erişim işlemleri soyutlanmıştır. Bu sayede farklı veri kaynaklarına kolayca adapte olunabilir  
+- <span style="color:purple;text-decoration:underline">DataAccess</span> katmanında Generic Repository deseni kullanılarak veri erişim işlemleri soyutlanmıştır. Bu sayede farklı veri kaynaklarına kolayca adapte olunabilir  
 - <label style="color:purple;text-decoration:underline">Entities</label>   katmanında veritabanı tablolarına karşılık gelen sınıflar yer almaktadır. AutoMapper kullanılarak veri transferi sırasında nesneler arasında kolayca dönüşüm sağlanmıştır  
 - <label style="color:purple;text-decoration:underline">Services</label>   katmanında https://fakestoreapi.com/products üzerinden ürün verileri çekilerek <label style="color:red;text-decoration:underline">Products</label> tablosuna eklenmesi ve veritabanındaki ürünlerle dış kaynaktan çekilen ürün listesi karşılaştırma işlemleri gerçekleştirilmiştir  
 - <label style="color:purple;text-decoration:underline">Mapping</label>    katmanında AutoMapper profilleri tanımlanmıştır  
