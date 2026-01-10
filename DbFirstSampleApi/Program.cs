@@ -1,6 +1,5 @@
 using DbFirstSampleApi.DataAccess.Abstract;
 using DbFirstSampleApi.DataAccess.Concrete;
-using DbFirstSampleApi.Entities.Validations;
 using DbFirstSampleApi.Filters;
 using DbFirstSampleApi.Mapping;
 using DbFirstSampleApi.Services;

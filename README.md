@@ -1,6 +1,19 @@
 # DbFirstSampleApi
 
-Yapılması gerekenler
+Bu proje, mimarisi Db First yaklaşımı ile geliştirilmiş bir Web API projesidir. Proje içerisinde Dapper kullanılarak MSSQL veritabanı ile etkileşim sağlanmıştır. Katmanlı mimari yapısı ile projenin sürdürülebilirliği ve genişletilebilirliği hedeflenmiştir.
+
+Mimari Yapı
+----------------------
+- DataAccess katmanında Generic Repository deseni kullanılarak veri erişim işlemleri soyutlanmıştır. Bu sayede farklı veri kaynaklarına kolayca adapte olunabilir  
+- Entities   katmanında veritabanı tablolarına karşılık gelen sınıflar yer almaktadır. AutoMapper kullanılarak veri transferi sırasında nesneler arasında kolayca dönüşüm sağlanmıştır  
+- Services   katmanında https://fakestoreapi.com/products üzerinden ürün verileri çekilerek Products tablosuna eklenmesi ve veritabanındaki ürünlerle dış kaynaktan çekilen ürün listesi karşılaştırma işlemleri gerçekleştirilmiştir  
+- Mapping    katmanında AutoMapper profilleri tanımlanmıştır  
+- Filters    katmanında isteklerin doğrulanması için Fluent Validation kullanılmıştır  
+- Sql Script klasöründe veritabanı tabloları ve prosedürlerin oluşturulması için gerekli SQL script dosyası bulunmaktadır  
+- Utility    katmanında JWT Token oluşturma işlemi ve şifre hash değerinin hesaplanması gerçekleştirilmiştir  
+- Response   katmanında API yanıt modeli tanımlanmıştır  
+
+Nasıl çalıştırılır?
 ----------------------
 1- MSSQL'de veritabanı yaratılır  
 2- Connection string düzenlenir  
@@ -24,10 +37,12 @@ Kullanılan Teknikler
 -----------------------
 JWT Token  
 Generic Repository  
-Mapping  
+Mapping (AutoMapper)  
+Dependency Injection  
 Fluent Validation  
+Linq  
 Sql Script çalıştırma ile veritabanı kurulumu
-https://fakestoreapi.com/products adresinden ürün bilgilerini çekme, veritabanına toplu ekleme ve veritabanı ile karşılaştırma
+ 
 
 
 
