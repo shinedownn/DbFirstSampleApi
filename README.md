@@ -4,13 +4,15 @@ Yapılması gerekenler
 ----------------------
 1- MSSQL'de veritabanı yaratılır  
 2- Connection string düzenlenir  
-3- Swagger ile /api/Database tetiklenerek veritabanı örnek veriler ile birlikte kurulur   
+3- Swagger ile /api/Database tetiklenerek Sql Script\Init.sql script dosyası çalıştırılarak veritabanı tabloları ve prosedürler örnek veriler ile birlikte kurulur   
 4- Swagger ile /api/Token demo kullanıcı ile tetiklenir  
+5- Swagger ile /api/ExternalProduct/BulkInsertToDatabaseWithRandomPrice tetiklenerek test verisi fiyat bilgisi değiştirilerek Products tablosuna yazdırılır
+6- Swagger ile /api/ExternalProduct/GetDifferentProducts ile veritabanındaki ürünlerle dış kaynaktan çekilen ürün listesi karşılaştırma raporu alınır
 
 Token almak için
 -----------------------
 Kullanıcı adı : demo  
-Password      : demo  
+Şifre         : demo  
 
 Kullanılan Teknolojiler
 -----------------------
