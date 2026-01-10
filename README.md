@@ -12,7 +12,7 @@ Yapılması gerekenler
 Token almak için
 -----------------------
 Kullanıcı adı : demo  
-Password      : demo  
+Şifre         : demo  
 
 Kullanılan Teknolojiler
 -----------------------
