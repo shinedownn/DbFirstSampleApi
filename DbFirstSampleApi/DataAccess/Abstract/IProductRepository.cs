@@ -18,6 +18,7 @@ namespace DbFirstSampleApi.DataAccess.Abstract
         public abstract Task<bool> DeleteAsync(DeleteProductParams param);
         public abstract Task<bool> CreateAsync(CreateProductParams param);
         public abstract Task<IEnumerable<GetProductDto>> GetListAsync();
+        public abstract Task<bool> BulkInsert(IEnumerable<CreateProductParams> paramList);
         public IDbConnection CreateConnection()
         {
             return new SqlConnection(_connectionString);

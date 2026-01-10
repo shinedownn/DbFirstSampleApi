@@ -32,6 +32,7 @@ namespace DbFirstSampleApi.Controllers
             }
             catch (Exception ex)
             {
+                responseModel.Message = "Database oluşturulamadı";
                 responseModel.Status = false;
                 responseModel.Message = ex.Message;
                 responseModel.Errors.Add(ex.Message);

@@ -1,12 +1,14 @@
 ﻿using DbFirstSampleApi.DataAccess.Abstract;
 using DbFirstSampleApi.Entities.Concrete;
 using DbFirstSampleApi.Entities.Dtos.ProductDto;
+using DbFirstSampleApi.Entities.EndpointParams.Product;
 using DbFirstSampleApi.Response;
 using DbFirstSampleApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Net.WebSockets;
 
 namespace DbFirstSampleApi.Controllers
 {
@@ -36,19 +38,22 @@ namespace DbFirstSampleApi.Controllers
                 var result = await _externalProductService.GetProducts();
                 responseModel.Data = result;
                 responseModel.Status = true;
-                responseModel.Message = "Success";
+                responseModel.Message = "Başarılı";
             }
             catch (Exception ex)
             {
                 responseModel.Data = null;
                 responseModel.Status = false;
-                responseModel.Message = "Error handled";
+                responseModel.Message = "Başarısız";
                 responseModel.Errors.Add(ex.Message);
             }
             return responseModel;
         }
+
+
+
         /// <summary>
-        /// Dış kaynaktan çektiği ürün listesini iç kaynaktan çektiği ürünlerle karşılaştırır
+        /// https://fakestoreapi.com/products 'dan çektiği ürün listesini iç kaynaktan çektiği ürünlerle karşılaştırır
         /// </summary>
         /// <returns>Fiyatı artanları ve azalanları ayrı ayrı döndürür</returns>
         [HttpGet("GetDifferentProducts")]
@@ -92,6 +97,41 @@ namespace DbFirstSampleApi.Controllers
                 Message = $"{report.TotalUpdated} adet fiyatı değişmiş ürün bulundu",
                 Data = report
             }; 
+        }
+
+        /// <summary>
+        /// https://fakestoreapi.com/products 'dan çektiği ürün listesini veritabanına toplu ekler
+        /// </summary>
+        /// <returns>true veya false döner</returns>
+        [HttpPost("BulkInsertToDatabaseWithRandomPrice")]
+        public async Task<ResponseModel<bool>> BulkInsertToDatabaseWithRandomPrice()
+        {
+            ResponseModel<bool> responseModel = new ResponseModel<bool>();
+            try
+            {
+                var randomPriceProducts = await _externalProductService.GetProductByRandomPrice();
+
+                var result = await _productRepository.BulkInsert(
+                    randomPriceProducts.Select(x => new CreateProductParams
+                    {
+                        Name = x.Title,
+                        Category = x.Category,
+                        Price = x.Price,
+                        CreatedAt = DateTime.Now,
+                        IsActive = true
+                    }));
+                
+                responseModel.Status = result;
+                responseModel.Message = result ? "Toplu ekleme başarılı" : "Toplu ekleme başarısız";
+            }
+            catch (Exception ex)
+            {                
+                responseModel.Status = false;
+                responseModel.Message = "Hata alındı";
+                responseModel.Errors.Add(ex.Message);
+            }
+            
+            return responseModel;
         }
     }
     public class PriceSyncReport

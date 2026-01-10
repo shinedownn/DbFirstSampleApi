@@ -32,7 +32,7 @@ namespace DbFirstSampleApi.Controllers
 
                 responseModel.Status = result != null;
                 responseModel.Data = result;
-                responseModel.Message = result != null ? "Success" : "Not Found";
+                responseModel.Message = result != null ? "Başarılı" : "Bulunamadı";
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace DbFirstSampleApi.Controllers
 
                 responseModel.Status = result != null;
                 responseModel.Data = result;
-                responseModel.Message = result != null ? "Success" : "Not Found";
+                responseModel.Message = result != null ? "Başarılı" : "Bulunamadı";
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace DbFirstSampleApi.Controllers
 
                 responseModel.Status = result;
                 responseModel.Data = result;
-                responseModel.Message = result ? "Success" : "Not Found";
+                responseModel.Message = result ? "Başarılı" : "Başarısız";
             }
             catch (Exception ex)
             {
@@ -113,7 +113,7 @@ namespace DbFirstSampleApi.Controllers
 
                 responseModel.Status = result;
                 responseModel.Data = result;
-                responseModel.Message = result ? "Success" : "Not Found";
+                responseModel.Message = result ? "Başarılı" : "Başarısız";
             }
             catch (Exception ex)
             {
@@ -139,7 +139,7 @@ namespace DbFirstSampleApi.Controllers
 
                 responseModel.Status = result;
                 responseModel.Data = result;
-                responseModel.Message = result ? "Success" : "Not Found";
+                responseModel.Message = result ? "Başarılı" : "Başarısız";
             }
             catch (Exception ex)
             {

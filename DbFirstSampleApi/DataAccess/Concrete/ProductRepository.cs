@@ -5,6 +5,8 @@ using DbFirstSampleApi.Entities.Concrete;
 using DbFirstSampleApi.Entities.Dtos.ProductDto;
 using DbFirstSampleApi.Entities.EndpointParams.Product;
 using System.Data;
+using Z.Dapper.Plus;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DbFirstSampleApi.DataAccess.Concrete
 {
@@ -14,6 +16,33 @@ namespace DbFirstSampleApi.DataAccess.Concrete
         public ProductRepository(IConfiguration configuration, IMapper mapper) : base(configuration)
         {
             _mapper = mapper;
+        }
+
+        public override async Task<bool> BulkInsert(IEnumerable<CreateProductParams> paramList)
+        {
+            using (IDbConnection db = CreateConnection())
+            {
+                try
+                {
+                    DapperPlusManager
+                .Entity<ProductEntity>()
+                .Table("Products").Identity(x => x.Id); ;
+                    var d = paramList.Select(x => new ProductEntity()
+                    {
+                        Category = x.Category,
+                        CreatedAt = DateTime.Now,
+                        IsActive = true,
+                        Name = x.Name,
+                        Price = x.Price
+                    });
+                    var result = await db.BulkInsertAsync(d);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false; 
+                } 
+            }
         }
 
         public override async Task<bool> CreateAsync(CreateProductParams param)
@@ -29,7 +58,7 @@ namespace DbFirstSampleApi.DataAccess.Concrete
                 {
                     spParams[x.Name] = x.GetValue(param);
                 });
-                var result= await db.ExecuteAsync($"sp_Product_Create",spParams,commandType:CommandType.StoredProcedure);
+                var result = await db.ExecuteAsync($"sp_Product_Create", spParams, commandType: CommandType.StoredProcedure);
                 return result > 0;
             }
         }

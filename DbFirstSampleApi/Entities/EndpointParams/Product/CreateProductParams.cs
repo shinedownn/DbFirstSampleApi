@@ -6,7 +6,7 @@ namespace DbFirstSampleApi.Entities.EndpointParams.Product
     { 
         public string Name { get; set; }
         public string Category { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public bool IsActive { get; set; } = false;
         [SwaggerIgnore]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
