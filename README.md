@@ -1,5 +1,7 @@
 # DbFirstSampleApi
 
+$\color{red}{\underline{{kırmızı}}}$
+
 _Özet_
 ----------------------
 <p style="text-indent:1.5em">Bu proje, mimarisi Db First yaklaşımı ile geliştirilmiş bir Web API projesidir. Proje içerisinde Dapper kullanılarak MSSQL veritabanı ile etkileşim sağlanmıştır. Katmanlı mimari yapısı ile projenin sürdürülebilirliği ve genişletilebilirliği hedeflenmiştir.</p>
